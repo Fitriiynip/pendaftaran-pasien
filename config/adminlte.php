@@ -246,23 +246,23 @@ return [
             'text'        => 'buku',
             'url'         => 'admin/buku',
             'icon'        => 'far fa-fw fa-file',
-            
+
         ],
 
         [
-            'text'        => 'pengarang',
-            'url'         => 'admin/buku',
+            'text'        => 'author',
+            'url'         => 'admin/author',
             'icon'        => 'far fa-fw fa-file',
-            
+
         ],
 
         [
             'text'        => 'menu lainnya',
             'url'         => '#',
             'icon'        => 'far fa-fw fa-file',
-            
+
         ],
-        
+
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

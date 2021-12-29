@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facadee;
+use App\Http\Controllers\AuthorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,34 +21,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
- 
-//hanya untuk role admin
-Route::group(['prefix' => 'admin', 'middleware' => ['aute', 'role:admin']], function(){
-    route::get('/', function(){
-        return 'halaman admin';
-    });
-    route::get('profile', function(){
-        return 'halaman profile admin';
-});
-});
-
 // hanya untuk role pengguna
-Route::group(['prefix' => 'pengguna', 'middleware' => ['aute', 'role:pengguna']], function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']],
+function(){
     route::get('/', function(){
-        return 'halaman pengguna';
-    });
-    route::get('profile', function(){
-        return 'halaman profile pengguna';
+        return view('Author.index');
+    })->middleware(['role:admin']);
 });
-});
+
+Route::resource('author', AuthorController::class);
