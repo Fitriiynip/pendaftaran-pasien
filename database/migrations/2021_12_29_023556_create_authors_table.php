@@ -21,7 +21,6 @@ class CreateAuthorsTable extends Migration
             $table->string('agama');
             $table->string('alamat');
             $table->integer('no_tlp');
-
             $table->timestamps();
         });
     }
