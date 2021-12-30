@@ -29,7 +29,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        return view('admin.author.create');
+        return view('author.create');
     }
 
     /**
@@ -67,7 +67,7 @@ return redirect()->route('author.index');
      * @param  \App\Models\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function show(Author $author)
+    public function show(Author $request,$id)
     {
         $author = Author::findOrFail($id);
         return view('author.show', compact('author'));
@@ -79,7 +79,7 @@ return redirect()->route('author.index');
      * @param  \App\Models\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function edit(Author $author)
+    public function edit($id)
     {
         $author = Author::find($id);
         return view('author.edit')->with(compact('author'));
@@ -92,7 +92,7 @@ return redirect()->route('author.index');
      * @param  \App\Models\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Author $author)
+    public function update(Request $request,$id)
     {
         //validasi data
 $validated = $request->validate([
@@ -120,7 +120,7 @@ return redirect()->route('author.index');
      * @param  \App\Models\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Author $author)
+    public function destroy(Author $request,$id)
     {
         if(!Author::destroy($id)) return redirect()->back();
         Session::flash("flash_notification", [

@@ -6,7 +6,7 @@
 
 Dashboard
 
-@stop
+@endsection
 
 @section('content')
 @include('layouts._flash')
@@ -20,12 +20,15 @@ Dashboard
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table" id="author">
+                            <thead>
                             <tr>
                                 <th>Nomor</th>
                                 <th>Nama Penulis</th>
                                 <th>Aksi</th>
                             </tr>
+                            </thead>
+                            <tbody>
                             @php $no=1; @endphp
                             @foreach($author as $data)
                             <tr>
@@ -42,6 +45,7 @@ Dashboard
                                 </td>
                             </tr>
                             @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -49,13 +53,17 @@ Dashboard
         </div>
     </div>
 </div>
-@stop
+@endsection
 
 @section('css')
-
-
-@stop
+<link rel="stylesheet" href="{{asset ('DataTables/datatables.min.css')}}">
+@endsection
 
 @section('js')
-
-@stop
+<script src="{{ asset ('DataTables/datatables.min.js')}}"></script>
+<script>
+    $(document).ready(function(){
+        $('#author').DataTable();
+    });
+</script>
+@endsection

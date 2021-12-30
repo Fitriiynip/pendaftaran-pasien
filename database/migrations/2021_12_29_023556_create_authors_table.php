@@ -15,12 +15,8 @@ class CreateAuthorsTable extends Migration
     {
         Schema::create('authors', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_peminjam');
-            $table->date('ttl');
-            $table->string('jk');
-            $table->string('agama');
-            $table->string('alamat');
-            $table->integer('no_tlp');
+            $table->string('name');
+
             $table->timestamps();
         });
     }
