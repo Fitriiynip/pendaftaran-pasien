@@ -255,7 +255,17 @@ return [
             'icon'        => 'far fa-fw fa-file',
 
         ],
+        [
+            'text'        => 'kk',
+            'url'         => 'kepalakeluarga',
+            'icon'        => 'far fa-fw fa-file',
 
+        ],
+        [
+            'text'        => 'pasien',
+            'url'         => 'pasien',
+            'icon'        => 'far fa-fw fa-file',
+        ],
         [
             'text'        => 'menu lainnya',
             'url'         => '#',

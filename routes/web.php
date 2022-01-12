@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facadee;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\KepalaKeluargaController;
+use App\Http\Controllers\pasienController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,16 +26,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // hanya untuk role pengguna
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']],
 function(){
-    route::get('admin', function(){
-        return view('Author.index');
+    route::get('/', function(){
+        return view('kepalakeluarga.index');
     });
-    Route::resource('author', AuthorController::class);
 
-    route::get('admin', function(){
-        return view('admin.index');
 });
 
-Route::resource('author', AuthorController::class);
-});
+Route::resource('kepalakeluarga', KepalaKeluargaController::class);
+Route::resource('pasien', pasienController::class);
+
 
 
