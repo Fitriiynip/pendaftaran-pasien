@@ -1,23 +1,33 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashbord')
-
 @section('content_header')
-
-Dashbord
-
-@stop
+    Dashboard
+@endsection
 
 @section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">{{ __('Dashboard') }}</div>
 
-Welcome to this beautiful admin panel.
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                        @role('admin')
+                            <p>Halaman Admin</p>
+                        @endrole
 
-@stop
+                        @role('member')
+                            <p>Halaman Member</p>
+                        @endrole
 
-@section('css')
-
-@stop
-
-@section('js')
-
-@stop
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
