@@ -52,7 +52,7 @@
                                     @foreach ($ruang as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->keterangan }}</td>
+                                            <td>{{ $data->Ruangan }}</td>
                                             <td>
                                                 <form action="{{ route('ruang.destroy', $data->id) }}" method="post">
                                                     @method('delete')

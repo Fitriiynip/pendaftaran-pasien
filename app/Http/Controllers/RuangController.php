@@ -40,11 +40,11 @@ class RuangController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'keterangan' => 'required',
+            'Ruangan' => 'required',
         ]);
 
         $ruang = new Ruang;
-        $ruang->keterangan = $request->keterangan;
+        $ruang->Ruangan = $request->Ruangan;
         $ruang->save();
         Session::flash("flash_notification", [
             "level" => "success",
@@ -91,7 +91,7 @@ class RuangController extends Controller
         ]);
 
         $jadwal = Ruang::findOrFail($id);
-        $jadwal->keterangan = $request->keterangan;
+        $jadwal->Ruangan = $request->Ruangan;
         $jadwal->save();
         Session::flash("flash_notification", [
             "level" => "success",

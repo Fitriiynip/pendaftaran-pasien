@@ -15,11 +15,11 @@ class RuangSeeder extends Seeder
     public function run()
     {
         //
-        $ruang1 = Ruang::create(['keterangan' => 'Cempaka Putih']);
+        $ruang1 = Ruang::create(['Ruangan' => 'IGD']);
 
-        $ruang2 = Ruang::create(['keterangan' => 'Mawar']);
+        $ruang2 = Ruang::create(['Ruangan' => 'Ruang VIP']);
 
-        $ruang3 = Ruang::create(['keterangan' => 'Melati']);
+        $ruang3 = Ruang::create(['Ruangan' => 'Ruangan oprasi']);
 
     }
 }

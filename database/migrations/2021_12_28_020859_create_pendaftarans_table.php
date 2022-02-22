@@ -23,12 +23,15 @@ class CreatePendaftaransTable extends Migration
                 ->on('jadwal_dokters')->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('jk');
-            $table->string('jadwal_periksa');
+            $table->string('jadwalperiksa');
+            $table->string('alamatpasien');
+            $table->string('kamar');
             $table->bigInteger('id_ruang')->unsigned();
             $table->foreign('id_ruang')->references('id')
                 ->on('ruangs')->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->string('cara_bayar');
+              
+
             $table->timestamps();
         });
     }

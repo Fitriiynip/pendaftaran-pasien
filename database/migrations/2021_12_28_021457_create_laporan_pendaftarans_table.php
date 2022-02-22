@@ -21,9 +21,8 @@ class CreateLaporanPendaftaransTable extends Migration
             $table->string('no_telepon');
             $table->string('nama_dokter');
             $table->string('jk');
-            $table->date('jadwal_periksa');
+            $table->date('jadwalperiksa');
             $table->string('ruang');
-            $table->string('cara_bayar');
             $table->timestamps();
         });
     }

@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-12">
-                <h1 class="m-0">Data Jadwal Dokter</h1>
+                <h1 class="m-0">Kamar</h1>
             </div>
         </div>
     </div>
@@ -60,8 +60,8 @@
             <div class="card">
                 <div class="card-header">
 
-                    <a href="{{ route('jadwal.create') }}" class="btn btn-sm btn-primary float-right">Tambah
-                        Data Jadwal</a>
+                    <a href="{{ route('kamar.create') }}" class="btn btn-sm btn-primary float-right">Tambah
+                        Data kamar</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -69,26 +69,24 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Dokter</th>
-                                    <th>Mulai</th>
-                                    <th>Akhir</th>
+                                    <th>Nama Kamar</th>
+                                    <th>Nama ruangan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php $no=1; @endphp
-                                @foreach ($jadwal as $data)
+                                @foreach ($kamar as $data)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td>{{ $data->nama_dokter }}</td>
-                                    <td>{{ $data->waktu_mulai }}</td>
-                                    <td>{{ $data->waktu_akhir }}</td>
+                                    <td>{{ $data->nama_kamar }}</td>
+                                    <td>{{ $data->id_ruang }}</td>
                                     <td>
-                                        <form action="{{ route('jadwal.destroy', $data->id) }}" method="post">
+                                        <form action="{{ route('kamar.destroy', $data->id) }}" method="post">
                                             @method('delete')
                                             @csrf
-                                            <a href="{{ route('jadwal.edit', $data->id) }}" class="btn btn-info">Edit</a>
-                                            <a href="{{ route('jadwal.show', $data->id) }}" class="btn btn-warning">Show</a>
+                                            <a href="{{ route('kamar.edit', $data->id) }}" class="btn btn-info">Edit</a>
+                                            <a href="{{ route('kamar.show', $data->id) }}" class="btn btn-warning">Show</a>
                                             <button type="submit" class="btn btn-danger delete-confirm">Delete</button>
 
                                         </form>

@@ -15,11 +15,11 @@ class SpesialisSeeder extends Seeder
     public function run()
     {
         //
-        $spesialis1 = Spesialis::create(['nama_spesialis' => 'Penyakit Dalam']);
+        $spesialis1 = Spesialis::create(['nama_spesialis' => 'Dokter anak']);
 
-        $spesialis2 = Spesialis::create(['nama_spesialis' => 'Dokter Umum']);
+        $spesialis2 = Spesialis::create(['nama_spesialis' => 'Dokter saraf']);
 
-        $spesialis3 = Spesialis::create(['nama_spesialis' => 'Dokter Gigi']);
+        $spesialis3 = Spesialis::create(['nama_spesialis' => 'Dokter bedah']);
 
     }
 }

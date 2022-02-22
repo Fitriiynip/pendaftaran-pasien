@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
+
 use App\Models\JadwalDokter;
 use App\Models\Pendaftaran;
 use App\Models\Ruang;
@@ -40,17 +42,17 @@ class PendaftaranController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        // $request->validate([
 
-            'nama_pasien' => 'required',
-            'tanggal_daftar' => 'required',
-            'no_telepon' => 'required',
-            'id_dokter' => 'required',
-            'jk' => 'required',
-            'jadwal_periksa' => 'required',
-            'id_ruang' => 'required',
-            'cara_bayar' => 'required',
-        ]);
+        //     'nama_pasien' => 'required',
+        //     'tanggal_daftar' => 'required',
+        //     'no_telepon' => 'required',
+        //     'id_dokter' => 'required',
+        //     'jk' => 'required',
+        //     'jadwaperiksa' => 'required',
+        //     'id_ruang' => 'required',
+        //     'bayar' => 'required',
+        // ]);
 
         $pendaftaran = new Pendaftaran;
         $pendaftaran->nama_pasien = $request->nama_pasien;
@@ -58,9 +60,12 @@ class PendaftaranController extends Controller
         $pendaftaran->no_telepon = $request->no_telepon;
         $pendaftaran->id_dokter = $request->id_dokter;
         $pendaftaran->jk = $request->jk;
-        $pendaftaran->jadwal_periksa = $request->jadwal_periksa;
+        $pendaftaran->jadwalperiksa = $request->jadwalperiksa;
+        $pendaftaran->alamatpasien = $request->alamatpasien;
+        $pendaftaran->kamar = $request->kamar;
         $pendaftaran->id_ruang = $request->id_ruang;
-        $pendaftaran->cara_bayar = $request->cara_bayar;
+        
+
         $pendaftaran->save();
         return redirect()->route('pendaftaran.index');
     }
@@ -72,11 +77,11 @@ class PendaftaranController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
         $pendaftaran = Pendaftaran::findOrFail($id);
         $ruang = Ruang::all();
         $jadwal = JadwalDokter::all();
-        return view('pendaftaran.show', compact('pendaftaran',  'ruang', 'jadwal'));
+        return view('pendaftaran.show', compact('pendaftaran', 'ruang', 'jadwal'));
     }
 
     /**
@@ -109,9 +114,9 @@ class PendaftaranController extends Controller
             'no_telepon' => 'required',
             'id_dokter' => 'required',
             'jk' => 'required',
-            'jadwal_periksa' => 'required',
+            'jadwalperiksa' => 'required',
             'id_ruang' => 'required',
-            'cara_bayar' => 'required',
+            
         ]);
 
         $pendaftaran = Pendaftaran::findOrfail($id);
@@ -120,9 +125,11 @@ class PendaftaranController extends Controller
         $pendaftaran->no_telepon = $request->no_telepon;
         $pendaftaran->id_dokter = $request->id_dokter;
         $pendaftaran->jk = $request->jk;
-        $pendaftaran->jadwal_periksa = $request->jadwal_periksa;
+        $pendaftaran->jadwalperiksa = $request->jadwalperiksa;
+        $pendaftaran->alamatpasien = $request->alamatpasien;
+        $pendaftaran->kamar = $request->kamar;
         $pendaftaran->id_ruang = $request->id_ruang;
-        $pendaftaran->cara_bayar = $request->cara_bayar;
+       
         $pendaftaran->save();
         return redirect()->route('pendaftaran.index');
 

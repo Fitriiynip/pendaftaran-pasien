@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Models\JadwalDokter;
 use Illuminate\Http\Request;
 use Session;
+
 
 class JadwalDokterController extends Controller
 {
@@ -114,12 +116,11 @@ class JadwalDokterController extends Controller
      */
     public function destroy($id)
     {
-        $jadwal = JadwalDokter::findOrFail($id);
-        $jadwal->delete();
-        Session::flash("flash_notification", [
-            "level" => "success",
-            "message" => "Data deleted successfully",
-        ]);
+
+        if (!JadwalDokter::destroy($id)) {
+            return redirect()->back();
+        }
+        Alert::success('Success', 'Data deleted successfully');
         return redirect()->route('jadwal.index');
     }
 }

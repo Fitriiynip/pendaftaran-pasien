@@ -1,11 +1,22 @@
 @extends('adminlte::page')
 
+@section('content_header')
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h1 class="m-0">Data Jadwal Dokter</h1>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Data Jadwal Dokter</div>
                     <div class="card-body">
                         <form action="{{ route('jadwal.store') }}" method="post">
                             @csrf
@@ -20,7 +31,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Masukan Waktu Mulai</label>
+                                <label for="">Waktu Mulai</label>
                                 <input type="text" name="waktu_mulai"
                                     class="form-control @error('waktu_mulai') is-invalid @enderror">
                                 @error('waktu_mulai')
@@ -30,7 +41,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Masukan Waktu Berakhir</label>
+                                <label for="">Waktu Berakhir</label>
                                 <input type="text" name="waktu_akhir"
                                     class="form-control @error('waktu_akhir') is-invalid @enderror">
                                 @error('waktu_akhir')

@@ -9,9 +9,9 @@ class Pendaftaran extends Model
 {
     use HasFactory;
     protected $table = "pendaftarans";
-    protected $visible = ['nama_pasien', 'tanggal_daftar', 'no_telepon', 'id_dokter', 'jk', 'jadwal_periksa', 'id_ruang', 'cara_bayar'];
+    protected $visible = ['nama_pasien', 'tanggal_daftar', 'no_telepon', 'id_dokter', 'jk', 'jadwalperiksa','alamatpasien','kamar', 'id_ruang'];
 
-    protected $fillable = ['nama_pasien', 'tanggal_daftar', 'no_telepon', 'id_dokter', 'jk', 'jadwal_periksa', 'id_ruang', 'cara_bayar'];
+    protected $fillable = ['nama_pasien', 'tanggal_daftar', 'no_telepon', 'id_dokter', 'jk', 'jadwalperiksa','alamatpasien', 'kamar', 'id_ruang'];
 
     public $timestamps = true;
 

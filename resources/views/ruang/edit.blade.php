@@ -11,10 +11,10 @@
                             @csrf
                             @method('put')
                             <div class="form-group">
-                                <label for="">Masukan Keterangan</label>
-                                <input type="text" name="keterangan" value="{{ $ruang->keterangan }}"
-                                    class="form-control @error('keterangan') is-invalid @enderror">
-                                @error('keterangan')
+                                <label for="">Masukan Ruangan</label>
+                                <input type="text" name="Ruangan" value="{{ $ruang->Ruangan }}"
+                                    class="form-control @error('Ruangan') is-invalid @enderror">
+                                @error('Ruangan')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

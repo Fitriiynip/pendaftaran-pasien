@@ -46,7 +46,7 @@ return [
      */
 
     'logo' => '<b>Rs Imanuel</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'vendor/adminlte/dist/img/logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -247,9 +247,20 @@ return [
             'can' => 'manage-blog',
         ],
         [
-            'text' => 'Ruang',
+            'text' => 'Home',
+            'url'  => '/home',
+            'icon' => 'fa fa-home',
+        ],
+        [
+            'text' => 'Ruangan',
             'url' => 'admin/ruang',
             'icon' => 'fas fa-hospital-user',
+            'label_color' => 'success',
+        ],
+        [
+            'text' => 'Kamar',
+            'url' => 'admin/kamar',
+            'icon' => 'fas fa fa-hotel',
             'label_color' => 'success',
         ],
         // [
@@ -259,12 +270,12 @@ return [
         //     'label_color' => 'success',
         // ],
         [
-            'text' => 'Data Spesialis',
+            'text' => 'Spesialis',
             'url' => 'admin/spesialis',
             'icon' => 'fas fa-stethoscope',
             'label_color' => 'success',
         ],
-        ['header' => 'Report'],
+       
         [
             'text' => 'Pendaftaran',
             'url' => 'admin/pendaftaran',

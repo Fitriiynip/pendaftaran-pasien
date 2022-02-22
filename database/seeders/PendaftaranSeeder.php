@@ -16,6 +16,7 @@ class PendaftaranSeeder extends Seeder
     {
         $pendaftaran1 = Pendaftaran::create(['nama_pasien' => 'Fitri'=> 1,
             'tanggal_daftar' => '19 Januari', 'no_telepon' => '08964728637', 'id_dokter' => 2,
-            'jk' => 'Perempuan', 'jadwal_periksa' => '11.00 WIB', 'id_ruang' => 1, 'cara_bayar' => 'BPJS']);
+            'jk' => 'Perempuan', 'jadwalperiksa' => '11.00 WIB', 'id_ruang' => 1,]);
     }
+    )
 }
