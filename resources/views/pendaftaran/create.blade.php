@@ -104,7 +104,7 @@
                                 </span>
                                 @enderror
                             </div>
-                             <div class="form-group">
+                             {{-- <div class="form-group">
                                  <label for="">Kamar</label>
                                  <input type="text" name="kamar" class="form-control @error('kamar') is-invalid @enderror">
                                  @error('kamar')
@@ -112,7 +112,21 @@
                                      <strong>{{ $message }}</strong>
                                  </span>
                                  @enderror
+                             </div> --}}
+                             <div class="form-group">
+                                 <label for="">Kamar</label>
+                                 <select name="id_kamar" class="form-control @error('id_kamar') is-invalid @enderror">
+                                     @foreach ($kamar as $data)
+                                     <option value="{{ $data->id }}">{{ $data->nama_kamar }}</option>
+                                     @endforeach
+                                 </select>
+                                 @error('id_kamar')
+                                 <span class="invalid-feedback" role="alert">
+                                     <strong>{{ $message }}</strong>
+                                 </span>
+                                 @enderror
                              </div>
+
 
                            
                             <div class="form-group">

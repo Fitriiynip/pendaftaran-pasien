@@ -14,6 +14,11 @@ class Kamar extends Model
     protected $fillable = ['nama_kamar', 'id_ruang'];
 
     public $timestamps = true;
+    
+    public function pendaftaran()
+    {
+       return $this->hasMany('App\Models\Pendaftaran', 'id_kamar');
+    }
 
     public function ruang()
     {

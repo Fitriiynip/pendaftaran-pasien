@@ -24,4 +24,9 @@ class Pendaftaran extends Model
     {
         return $this->belongsTo('App\Models\JadwalDokter', 'id_dokter');
     }
+
+    public function kamar()
+    {
+        return $this->belongsTo('App\Models\Kamar', 'id_kamar');
+    }
 }

@@ -7,10 +7,22 @@ use Alert;
 use App\Models\JadwalDokter;
 use App\Models\Pendaftaran;
 use App\Models\Ruang;
+use App\Models\Kamar;
 use Illuminate\Http\Request;
 
 class PendaftaranController extends Controller
 {
+    public function cetakForm()
+    {
+        return view('pendaftaran.cetak');
+    }
+
+    public function cetakPertanggal($tglawal, $tglakhir)
+    {
+        // dd(["Tanggal Awal : ".$tglawal, "Tanggal Akhir : ".$tglakhir]);
+        $cetak = Pendaftaran::whereDate('tanggal_daftar', '>=', $tglawal)->whereDate('tanggal_daftar', '<=', $tglakhir)->get();
+        return view('pendaftaran.cetak-pertanggal', compact('cetak'));
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +30,7 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-        $pendaftaran = Pendaftaran::with('ruang', 'jadwal')->get();
+        $pendaftaran = Pendaftaran::with('ruang', 'jadwal', 'kamar')->get();
         return view('pendaftaran.index', compact('pendaftaran'));
     }
 
@@ -31,7 +43,8 @@ class PendaftaranController extends Controller
     {
         $ruang = Ruang::all();
         $jadwal = JadwalDokter::all();
-        return view('pendaftaran.create', compact('ruang', 'jadwal'));
+        $kamar = Kamar::all();
+        return view('pendaftaran.create', compact('ruang', 'jadwal', 'kamar'));
     }
 
     /**
@@ -62,7 +75,7 @@ class PendaftaranController extends Controller
         $pendaftaran->jk = $request->jk;
         $pendaftaran->jadwalperiksa = $request->jadwalperiksa;
         $pendaftaran->alamatpasien = $request->alamatpasien;
-        $pendaftaran->kamar = $request->kamar;
+        $pendaftaran->id_kamar = $request->id_kamar;
         $pendaftaran->id_ruang = $request->id_ruang;
         
 
@@ -81,7 +94,8 @@ class PendaftaranController extends Controller
         $pendaftaran = Pendaftaran::findOrFail($id);
         $ruang = Ruang::all();
         $jadwal = JadwalDokter::all();
-        return view('pendaftaran.show', compact('pendaftaran', 'ruang', 'jadwal'));
+        $kamar = Kamar::all();
+        return view('pendaftaran.show', compact('pendaftaran', 'ruang', 'jadwal', 'kamar'));
     }
 
     /**
@@ -95,7 +109,8 @@ class PendaftaranController extends Controller
         $pendaftaran = Pendaftaran::findOrFail($id);
         $ruang = Ruang::all();
         $jadwal = JadwalDokter::all();
-        return view('pendaftaran.edit', compact('pendaftaran', 'ruang', 'jadwal'));
+        $kamar = Kamar::All();
+        return view('pendaftaran.edit', compact('pendaftaran', 'ruang', 'jadwal', 'kamar'));
     }
 
     /**
@@ -115,6 +130,7 @@ class PendaftaranController extends Controller
             'id_dokter' => 'required',
             'jk' => 'required',
             'jadwalperiksa' => 'required',
+            'id_kamar' => 'required',
             'id_ruang' => 'required',
             
         ]);
@@ -127,7 +143,7 @@ class PendaftaranController extends Controller
         $pendaftaran->jk = $request->jk;
         $pendaftaran->jadwalperiksa = $request->jadwalperiksa;
         $pendaftaran->alamatpasien = $request->alamatpasien;
-        $pendaftaran->kamar = $request->kamar;
+        $pendaftaran->id_kamar = $request->id_kamar;
         $pendaftaran->id_ruang = $request->id_ruang;
        
         $pendaftaran->save();

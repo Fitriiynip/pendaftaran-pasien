@@ -52,7 +52,7 @@
                                     <td>{{ $data->jk }}</td>
                                     <td>{{ $data->jadwalperiksa }}</td>
                                     <td>{{ $data->alamatpasien }}</td>
-                                     <td>{{ $data->kamar }}</td>
+                                     <td>{{ $data->kamar->nama_kamar }}</td>
                                     <td>{{ $data->Ruang->Ruangan }}</td>
                                    
 
