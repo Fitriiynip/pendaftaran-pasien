@@ -96,7 +96,7 @@
                 <th>Alamat pasien</th>
                 <th>Kamar</th>
                 <th>Ruang</th>
-                <th>Aksi</th>
+                
 
 
             </tr>
@@ -106,13 +106,17 @@
                 <td>{{ $no++ }}</td>
                 <td>{{ $data->nama_pasien }}</td>
                 <td>{{ $data->tanggal_daftar }}</td>
-                <td>{{ $data->telepon }}</td>
-                <td>{{ date('d-m-Y', strtotime($data->tanggal)) }}</td>
-                <td>Rp. {{ number_format($data->nominal) }}</td>
-                <td>{{ $data->keterangan }}</td>
-                <td><img src="{{ $data->image() }}" style="width:80px; height:150px;" alt="...">
-                </td>
-            </tr>
+                <td>{{ $data->jadwal->nama_dokter }}</td>
+                <td>{{ $data->no_telepon }}</td>
+                <td>{{ $data->jk }}</td>
+                <td>{{ $data->jadwalperiksa }}</td>
+                <td>{{ $data->alamatpasien }}</td>
+                <td>{{ $data->kamar->nama_kamar }}</td>
+                <td>{{ $data->Ruang->Ruangan }}</td>
+
+
+                <td>
+
             @endforeach
         </table>
         <table border="1" width="710" height="100">

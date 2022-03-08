@@ -41,6 +41,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
     Route::resource('spesialis', SpesialisController::class);
     Route::resource('dokter', DataDokterController::class);
     Route::resource('kamar', KamarController::class);
+    Route::get('/cetak-laporan', 'App\Http\Controllers\PendaftaranController@cetakForm')->name('cetak-laporan');
+Route::get('/cetak-laporan-pertanggal/{tglawal}/{tglakhir}',
+    'App\Http\Controllers\PendaftaranController@cetakPertanggal')
+    ->name('cetak-laporan-pertanggal');
+
 
 
 });
