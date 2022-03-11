@@ -51,13 +51,12 @@
     <center>
         <table width="710">
             <tr>
-                <td><img src="{{ asset('vendor/adminlte/dist/img/logo1.png') }}" width="70" height="70"></td>
+                <td><img src="{{ asset('vendor/adminlte/dist/img/logo.png') }}" width="70" height="70"></td>
                 <td>
                     <center>
                         <font size="6"><b>Pendaftaran Pasien</b></font><br>
-                        <font size="2">JL. Cibaduyut Komplek, JL. Sauyunan I No.14, Kb. Lega, Kec. Bojongloa Kidul, Kota
-                            Bandung, Jawa Barat 40235</font><br>
-                        <font size="2"><i>Email: pondokyatim@gmail.com, Telepon: +62 8983529947</i></font>
+                        <font size="2">Jl. Raya Kopo No.161, Situsaeur, Kec. Bojongloa Kidul, Kota Bandung, Jawa Barat 40233</font><br>
+                        <font size="2"><i>Email: Rsimanuel@gmail.com, Telepon: +62 88218436825</i></font>
                     </center>
                 </td>
             </tr>
@@ -90,13 +89,14 @@
                 <th>Nomor</th>
                 <th>Nama Pasien</th>
                 <th>Tanggal daftar</th>
+                <th>nama Dokter</th>
                 <th>No Telepon</th>
                 <th>Jenis Kelamin</th>
                 <th>Tanggal Pemeriksa</th>
                 <th>Alamat pasien</th>
                 <th>Kamar</th>
                 <th>Ruang</th>
-                
+
 
 
             </tr>
@@ -117,14 +117,9 @@
 
                 <td>
 
-            @endforeach
+                    @endforeach
         </table>
-        <table border="1" width="710" height="100">
-            <tr>
-                <td width="420" class="total"><b>Total Dana : </b></td>
-                <td align="center" class="jumlah"><b>Rp. {{ number_format($total) }}</b></td>
-            </tr>
-        </table>
+
     </center>
     <script type="text/javascript">
         window.print();

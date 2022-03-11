@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Pondok Yatim | Home')
+@section('title', 'Pendaftaran Pasien | Home')
 
 @section('content_header')
 

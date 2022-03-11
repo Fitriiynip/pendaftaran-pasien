@@ -286,7 +286,11 @@ return [
             'url' => 'admin/jadwal',
             'icon' => 'fas fa-user-nurse',
         ],
-        
+         [
+            'text' => 'Laporan',
+            'url' => 'admin/cetak-laporan',
+            'icon' => 'fas fa-user-nurse',
+        ],
 
     ],
 
