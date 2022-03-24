@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\API;
-
+use App\Models\Ruang;
+use App\Models\JadwalDokter;
+use App\Models\Pendaftaran;
+use App\Models\Kamar;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class keluhanController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +17,14 @@ class keluhanController extends Controller
      */
     public function index()
     {
-        $katagori = Kategori::all();
+      $pendaftaran = Pendaftaran::with('ruang', 'jadwal', 'kamar')->get();
         return response()->json([
             'success' => true,
-            'mssage' => 'Data Keluhan',
-            'data' => $keluhan,
-        ], 200);
+            'message' => 'pendaftaran',
+            'data' => $pendaftaran,
+                ], 200);
+
+
 
     }
 
@@ -41,15 +46,7 @@ class keluhanController extends Controller
      */
     public function store(Request $request)
     {
-        $keluhan = new ArticleCategory();
-        $keluhan->name = $request->name;
-        $keluhan->slug = $request->slug;
-        $keluhan->save();
-        return response()->json([
-            'success' => true,
-            'massage' => 'Data keluhan berhasil dibuat',
-            'data' => $katagori,
-        ], 201);
+        //
     }
 
     /**
@@ -60,12 +57,7 @@ class keluhanController extends Controller
      */
     public function show($id)
     {
-        $katagori = ArticleCategory::findOrfail($id);
-        return response()->json([
-            'success' => true,
-            'mssage' => 'Show Data Keluhan',
-            'data' => $keluhan,
-        ], 200);
+        //
     }
 
     /**
@@ -76,15 +68,7 @@ class keluhanController extends Controller
      */
     public function edit($id)
     {
-        $keluhan = new ArticleCategory();
-        $keluhan->name = $request->name;
-        $keluhan->slug = $request->slug;
-        $keluhan->save();
-        return response()->json([
-            'success' => true,
-            'massage' => 'Data keluhan berhasil diedit',
-            'data' => $katagori,
-        ], 201);
+        //
     }
 
     /**
@@ -107,12 +91,6 @@ class keluhanController extends Controller
      */
     public function destroy($id)
     {
-        $katagori = ArticleCategory::findOrfail($id);
-        return response()->json([
-            'success' => true,
-            'mssage' => 'Show Data Keluhan Berhasil Dihapus',
-            'data' => $keluhan,
-        ], 200);
-
+        //
     }
 }
