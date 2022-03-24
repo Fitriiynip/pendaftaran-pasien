@@ -6,7 +6,7 @@ use App\Http\Controllers\KeluhanController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\RuangController;
 use App\Http\Controllers\SpesialisController;
-use App\Http\Controllers\kamarController;
+use App\Http\Controllers\KamarController;
 
 use Illuminate\Support\Facades\Route;
 
