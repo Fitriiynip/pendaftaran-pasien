@@ -25,5 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('kategori', KategoriController::class);
 Route::resource('users', UserController::class);
+Route::get('pendafataran', [ApiController::class, 'pendaftaran']);
+
 
 
