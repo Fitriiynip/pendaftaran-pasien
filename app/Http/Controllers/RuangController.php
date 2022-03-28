@@ -87,7 +87,7 @@ class RuangController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'keterangan' => 'required',
+            
         ]);
 
         $jadwal = Ruang::findOrFail($id);
